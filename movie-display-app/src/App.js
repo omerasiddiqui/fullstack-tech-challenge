@@ -4,25 +4,26 @@ import './App.css';
 import MovieCard from './components/MovieCard';
 
 function App() {
-  const apiKey = 'cb269e4784c7332a4a0cee9e1438ef39';
-  const allMoviesUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&sort_by=release_date.desc&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&primary_release_year=2020`;
+  const apiKey = process.env.REACT_APP_API_KEY;
 
   const [movies, setMovies] = useState(null);
 
-
-  function fetchMovies() {
-    fetch(allMoviesUrl)
-      .then(resp => resp.json())
-      .then(data => {
-        console.log(data.results)
-        setMovies(data.results);
-
-      });
-  }
-
   useEffect(() => {
+    const allMoviesUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&sort_by=release_date.desc&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&primary_release_year=2020`;
+
+    function fetchMovies() {
+      console.log(process.env.REACT_APP_API_KEY);
+      fetch(allMoviesUrl)
+        .then(resp => resp.json())
+        .then(data => {
+          console.log(data.results)
+          setMovies(data.results);
+
+        });
+    }
+
     fetchMovies();;
-  });
+  }, []);
 
   return (
     <div className="App">

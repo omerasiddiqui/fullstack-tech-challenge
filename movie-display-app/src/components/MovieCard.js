@@ -13,10 +13,11 @@ class MovieCard extends React.Component {
     }
 
     displayDetails = () => {
-        fetch(`https://api.themoviedb.org/3/movie/${this.props.movieId}?api_key=cb269e4784c7332a4a0cee9e1438ef39&language=en-US`)
+        const apiKey = process.env.REACT_APP_API_KEY;
+
+        fetch(`https://api.themoviedb.org/3/movie/${this.props.movieId}?api_key=${apiKey}&language=en-US`)
             .then(response => response.json())
             .then(result => {
-                console.log(result)
                 let genreNames = [];
 
                 for (let i = 0; i < result.genres.length; i++) {
@@ -44,8 +45,10 @@ class MovieCard extends React.Component {
 
     render() {
         let details;
+        // check for populated state
         if (this.state.runtime > 0) {
-            if (this.state.tagline.length < 2) {
+            // display if tagline is missing
+            if (this.state.tagline.length < 1) {
                 details = <div className="modal">
                     <div className="exit"><p onClick={this.exitModal}>X</p></div>
                     <div className="movie-description">
@@ -63,10 +66,12 @@ class MovieCard extends React.Component {
                         ))}
                     </div>
                 </div>
-            } else {
+            }
+            // display modal with details
+            else {
                 details =
                     (
-                        <div class="modal">
+                        <div className="modal">
                             <div className="exit"><p onClick={this.exitModal}>X</p></div>
                             <div className="movie-tagline">
                                 <label htmlFor="tagline">tagline: </label>
@@ -90,7 +95,9 @@ class MovieCard extends React.Component {
                     )
             }
 
-        } else {
+        }
+        // empty state
+        else {
             details = <div></div>
         }
         return (
