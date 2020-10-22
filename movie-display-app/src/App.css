@@ -1,0 +1,136 @@
+.App {
+  text-align: center;
+  min-height: 100vh;
+  background-color: #282c34;
+}
+
+.App-logo {
+    height: 12vmin;
+    padding-bottom: 1%;
+    pointer-events: none;
+    border-bottom: 1px solid white;
+}
+
+.App-header {
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  padding-top: 2%;
+  padding-left: 1%;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  font-size: 42px;
+}
+
+.App-header h1 {
+  text-shadow: 1px 1px 1px tomato;
+  align-self: center;
+  border-radius: 5px;
+  padding: 1%;
+  margin-top: -1%;
+  margin-bottom: 1%;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 auto;
+  width: 70%;
+}
+
+p {
+  color: white;
+}
+
+.fetch-button {
+  padding: 1%;
+  background: white;
+  color: tomato;
+  border-radius: 5px;
+  width: 25%;
+  text-shadow: 1px 1px 1px grey;
+  font-size: 1.5rem;
+  box-shadow: 1px 1px 1px tomato;
+  font-family: 'Roboto';
+  cursor: pointer;
+}
+
+main div {
+  width: 100%;
+}
+
+.movies {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3%;
+}
+
+.movie-card {
+  background: tomato;
+  width: 42%;
+  border-radius: 5px;
+  padding: 2%;
+  text-shadow: 1px 1px 1px grey;
+  font-size: 1.2rem;
+  margin: 1%;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 2px 2px 1px white;
+  position: relative;
+}
+
+.movie-tagline, .movie-runtime, .movie-genres, .movie-description {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.modal {
+  position: absolute;
+  top: 7%;
+  left: 1%;
+  border-radius: 5px;
+  z-index: 2;
+  font-size: 0.7rem;
+  width: 90%;
+  background: black;
+  padding: 4%;
+}
+
+.modal label {
+  color: lightgrey;
+  margin-right: 2%;
+  color: tomato;
+}
+
+label[for="description"] {
+  align-self: flex-start;
+  margin-top: 2.5%;
+}
+
+.exit {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.exit p {
+  text-align: center;
+  color: red;
+  background: lightgrey;
+  display: inline-block;
+  font-size: 1rem;
+  width: 8%;
+  border-radius: 10%;
+  margin-right: 2px;
+  margin-top: 2px;
+  margin-bottom: 0;
+}
