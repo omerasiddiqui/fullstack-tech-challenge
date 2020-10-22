@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import logo from './tiff_logo.svg.png';
 import './App.css';
 import MovieCard from './components/MovieCard';
@@ -9,40 +9,20 @@ function App() {
 
   const [movies, setMovies] = useState(null);
 
-  let movieIds = [];
-  let allMovieDetails = [];
 
   function fetchMovies() {
-
     fetch(allMoviesUrl)
       .then(resp => resp.json())
       .then(data => {
         console.log(data.results)
         setMovies(data.results);
 
-        data.results.map((item) => {
-          movieIds.push(item.id)
-        })
-
       });
-
   }
 
-  // function displayDetails() {
-  //   console.log("HELLO")
-
-  //   movieIds.map((item, index) => {
-  //     fetch(`https://api.themoviedb.org/3/movie/${item}?api_key=${apiKey}&language=en-US`)
-  //       .then(response => response.json())
-  //       .then(result => {
-  //         console.log(result)
-  //         movieDetails.push(result);
-  //       })
-  //   })
-
-  //   setMovieDetails(allMovieDetails);
-  //   console.log(allMovieDetails);
-  // }
+  useEffect(() => {
+    fetchMovies();;
+  });
 
   return (
     <div className="App">
@@ -51,10 +31,6 @@ function App() {
         <h1>TIFF Movie App</h1>
       </header>
       <main>
-
-        <div>
-          <button className="fetch-button" onClick={fetchMovies}>Get Movies</button>
-        </div>
 
         <div className="movies">
 

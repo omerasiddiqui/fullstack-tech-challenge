@@ -12,11 +12,7 @@ class MovieCard extends React.Component {
         }
     }
 
-
     displayDetails = () => {
-        console.log("HELLO")
-        console.log(this.props)
-
         fetch(`https://api.themoviedb.org/3/movie/${this.props.movieId}?api_key=cb269e4784c7332a4a0cee9e1438ef39&language=en-US`)
             .then(response => response.json())
             .then(result => {
@@ -34,8 +30,16 @@ class MovieCard extends React.Component {
                     tagline: result.tagline
                 })
             })
+    }
 
-
+    exitModal = (e) => {
+        e.stopPropagation();
+        this.setState({
+            description: null,
+            genres: [],
+            runtime: 0,
+            tagline: null
+        })
     }
 
     render() {
@@ -43,6 +47,7 @@ class MovieCard extends React.Component {
         if (this.state.runtime > 0) {
             if (this.state.tagline.length < 2) {
                 details = <div className="modal">
+                    <div className="exit"><p onClick={this.exitModal}>X</p></div>
                     <div className="movie-description">
                         <label htmlFor="description">description: </label>
                         <p>{this.state.description}</p>
@@ -53,14 +58,16 @@ class MovieCard extends React.Component {
                     </div>
                     <div className="movie-genres">
                         <label htmlFor="genres">genres: </label>
-                        <p>{this.state.genres}</p>
+                        {this.state.genres.map((value, index) => (
+                            <p key={index}>{value}   </p>
+                        ))}
                     </div>
                 </div>
             } else {
                 details =
                     (
                         <div class="modal">
-                            <div className="exit"><p>X</p></div>
+                            <div className="exit"><p onClick={this.exitModal}>X</p></div>
                             <div className="movie-tagline">
                                 <label htmlFor="tagline">tagline: </label>
                                 <p>{this.state.tagline}</p>
@@ -75,7 +82,9 @@ class MovieCard extends React.Component {
                             </div>
                             <div className="movie-genres">
                                 <label htmlFor="genres">genres: </label>
-                                <p>{this.state.genres}</p>
+                                {this.state.genres.map((value, index) => (
+                                    <p key={index}>{value}   </p>
+                                ))}
                             </div>
                         </div>
                     )
@@ -87,16 +96,14 @@ class MovieCard extends React.Component {
         return (
             <div className="movie-card" onClick={this.displayDetails}>
                 <div className="movie-title">
+                    <label htmlFor="movieTitle">Movie Title: </label>
                     <p>{this.props.movieTitle}</p>
                 </div>
                 <div className="movie-release-date">
+                    <label htmlFor="releaseDate">Release Date: </label>
                     <p>{this.props.releaseDate}</p>
                 </div>
                 {details}
-
-
-
-
             </div>
         )
     }

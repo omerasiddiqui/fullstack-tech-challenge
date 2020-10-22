@@ -1,6 +1,2 @@
 #theMovieDb API
 key=cb269e4784c7332a4a0cee9e1438ef39
-
-
-https://api.themoviedb.org/3/discover/movie?api_key=cb269e4784c7332a4a0cee9e1438ef39&language=en-US&sort_by=release_date.desc&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&primary_release_year=2020
-
