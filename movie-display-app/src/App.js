@@ -12,7 +12,6 @@ function App() {
     const allMoviesUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&sort_by=release_date.desc&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&primary_release_year=2020`;
 
     function fetchMovies() {
-      console.log(process.env.REACT_APP_API_KEY);
       fetch(allMoviesUrl)
         .then(resp => resp.json())
         .then(data => {
@@ -37,7 +36,7 @@ function App() {
 
           {movies && movies.map((movie, index) => (
             <MovieCard
-              key={movie.id}
+              key={index}
               movieId={movie.id}
               movieTitle={movie.original_title}
               releaseDate={movie.release_date}

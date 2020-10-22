@@ -12,10 +12,12 @@ class MovieCard extends React.Component {
         }
     }
 
-    displayDetails = () => {
-        const apiKey = process.env.REACT_APP_API_KEY;
+    apiKey = process.env.REACT_APP_API_KEY;
 
-        fetch(`https://api.themoviedb.org/3/movie/${this.props.movieId}?api_key=${apiKey}&language=en-US`)
+    displayDetails = () => {
+        const movieDetailsUrl = `https://api.themoviedb.org/3/movie/${this.props.movieId}?api_key=${this.apiKey}&language=en-US`;
+
+        fetch(movieDetailsUrl)
             .then(response => response.json())
             .then(result => {
                 let genreNames = [];
