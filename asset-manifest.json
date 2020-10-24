@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/omerasiddiqui/fullstack-tech-challenge/static/css/main.2b7ed6be.chunk.css",
+    "main.js": "/omerasiddiqui/fullstack-tech-challenge/static/js/main.28facf43.chunk.js",
+    "main.js.map": "/omerasiddiqui/fullstack-tech-challenge/static/js/main.28facf43.chunk.js.map",
+    "runtime-main.js": "/omerasiddiqui/fullstack-tech-challenge/static/js/runtime-main.efb6b54f.js",
+    "runtime-main.js.map": "/omerasiddiqui/fullstack-tech-challenge/static/js/runtime-main.efb6b54f.js.map",
+    "static/js/2.c05a9a4c.chunk.js": "/omerasiddiqui/fullstack-tech-challenge/static/js/2.c05a9a4c.chunk.js",
+    "static/js/2.c05a9a4c.chunk.js.map": "/omerasiddiqui/fullstack-tech-challenge/static/js/2.c05a9a4c.chunk.js.map",
+    "index.html": "/omerasiddiqui/fullstack-tech-challenge/index.html",
+    "precache-manifest.9d3596c07ef966e5f607940e574e6d7d.js": "/omerasiddiqui/fullstack-tech-challenge/precache-manifest.9d3596c07ef966e5f607940e574e6d7d.js",
+    "service-worker.js": "/omerasiddiqui/fullstack-tech-challenge/service-worker.js",
+    "static/css/main.2b7ed6be.chunk.css.map": "/omerasiddiqui/fullstack-tech-challenge/static/css/main.2b7ed6be.chunk.css.map",
+    "static/js/2.c05a9a4c.chunk.js.LICENSE.txt": "/omerasiddiqui/fullstack-tech-challenge/static/js/2.c05a9a4c.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.efb6b54f.js",
+    "static/js/2.c05a9a4c.chunk.js",
+    "static/css/main.2b7ed6be.chunk.css",
+    "static/js/main.28facf43.chunk.js"
+  ]
+}
