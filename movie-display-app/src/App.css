@@ -1,3 +1,9 @@
+body {
+  font-family: 'roboto';
+  font-size: 19px;
+  font-weight: 400;
+}
+
 .App {
   text-align: center;
   min-height: 100vh;
@@ -99,7 +105,7 @@ main div {
   background: #ff4523;
 }
 
-.movie-card label {
+.movie-card .label {
   margin-right: 3%;
 }
 
@@ -135,13 +141,17 @@ main div {
   padding: 4%;
 }
 
-.modal label {
+.modal .label {
   color: lightgrey;
   margin-right: 2%;
   color: tomato;
 }
 
-label[for="description"] {
+.mainLabel {
+  color: black;
+}
+
+.description {
   align-self: flex-start;
   margin-top: 2.5%;
 }
@@ -163,4 +173,21 @@ label[for="description"] {
   margin-top: -10px;
   margin-bottom: 0;
   cursor: pointer;
+}
+
+.button {
+  padding: 3% 0;
+}
+
+#loadMore {
+  cursor: pointer;
+  font-size: 1.5rem;
+  padding: 1.5%;
+  background: white;
+  color: tomato;
+  border: 3px solid dodgerblue;
+  border-radius: 5px;
+  font-family: 'Roboto';
+  font-weight: 400;
+  text-shadow: 1px 1px 1px grey;
 }

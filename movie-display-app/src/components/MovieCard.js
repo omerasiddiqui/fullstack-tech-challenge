@@ -54,15 +54,15 @@ class MovieCard extends React.Component {
                 details = <div className="modal">
                     <div className="exit"><p onClick={this.exitModal}>X</p></div>
                     <div className="movie-description">
-                        <label htmlFor="description">description: </label>
+                        <p className="label description" >description: </p>
                         <p>{this.state.description}</p>
                     </div>
                     <div className="movie-runtime">
-                        <label htmlFor="runtime">runtime: </label>
+                        <p className="label" >runtime: </p>
                         <p>{this.state.runtime}</p>
                     </div>
                     <div className="movie-genres">
-                        <label htmlFor="genres">genres: </label>
+                        <p className="label" >genres: </p>
                         {this.state.genres.map((value, index) => (
                             <p key={index}>{value}   </p>
                         ))}
@@ -76,19 +76,19 @@ class MovieCard extends React.Component {
                         <div className="modal">
                             <div className="exit"><p onClick={this.exitModal}>X</p></div>
                             <div className="movie-tagline">
-                                <label htmlFor="tagline">tagline: </label>
+                                <p className="label" >tagline: </p>
                                 <p>{this.state.tagline}</p>
                             </div>
                             <div className="movie-description">
-                                <label htmlFor="description">description: </label>
+                                <p className="label description">description: </p>
                                 <p>{this.state.description}</p>
                             </div>
                             <div className="movie-runtime">
-                                <label htmlFor="runtime">runtime: </label>
+                                <p className="label" >runtime: </p>
                                 <p>{this.state.runtime}</p>
                             </div>
                             <div className="movie-genres">
-                                <label htmlFor="genres">genres: </label>
+                                <p className="label" >genres: </p>
                                 {this.state.genres.map((value, index) => (
                                     <p key={index}>{value}   </p>
                                 ))}
@@ -105,11 +105,11 @@ class MovieCard extends React.Component {
         return (
             <div className="movie-card" onClick={this.displayDetails}>
                 <div className="movie-title">
-                    <label htmlFor="movieTitle">Movie Title: </label>
+                    <p className="label mainLabel" >Movie Title: </p>
                     <p>{this.props.movieTitle}</p>
                 </div>
                 <div className="movie-release-date">
-                    <label htmlFor="releaseDate">Release Date: </label>
+                    <p className="label mainLabel" >Release Date: </p>
                     <p>{this.props.releaseDate}</p>
                 </div>
                 {details}

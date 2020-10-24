@@ -7,16 +7,37 @@ function App() {
   const apiKey = process.env.REACT_APP_API_KEY;
 
   const [movies, setMovies] = useState(null);
+  const [counter, setCounter] = useState(1);
+
+  const allMoviesUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&sort_by=release_date.desc&sort_by=popularity.desc&include_adult=false&include_video=false&page=${counter}&primary_release_year=2020`;
+
+
+  function loadMore() {
+    setCounter(counter + 1);
+
+    fetch(allMoviesUrl)
+      .then(resp => resp.json())
+      .then(data => {
+        console.log(counter)
+        console.log(allMoviesUrl)
+        let popularMovies = data.results.filter(((item) => item.popularity > 10))
+        console.log(popularMovies)
+        setMovies(movies.concat(popularMovies));
+      });
+  }
 
   useEffect(() => {
-    const allMoviesUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&sort_by=release_date.desc&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&primary_release_year=2020`;
-
     function fetchMovies() {
       fetch(allMoviesUrl)
         .then(resp => resp.json())
         .then(data => {
+          console.log(counter)
           console.log(data.results)
-          setMovies(data.results);
+          let popularMovies = data.results.filter(((item) => item.popularity > 10))
+          console.log(popularMovies);
+
+          setMovies(popularMovies);
+          setCounter(counter + 1);
 
         });
     }
@@ -43,6 +64,10 @@ function App() {
             />
 
           ))}
+        </div>
+
+        <div className="button">
+          <button id="loadMore" onClick={loadMore}>Load More Moviess</button>
         </div>
 
       </main>
