@@ -14,14 +14,10 @@ function App() {
 
   function loadMore() {
     setCounter(counter + 1);
-
     fetch(allMoviesUrl)
       .then(resp => resp.json())
       .then(data => {
-        console.log(counter)
-        console.log(allMoviesUrl)
         let popularMovies = data.results.filter(((item) => item.popularity > 10))
-        console.log(popularMovies)
         setMovies(movies.concat(popularMovies));
       });
   }
@@ -31,14 +27,9 @@ function App() {
       fetch(allMoviesUrl)
         .then(resp => resp.json())
         .then(data => {
-          console.log(counter)
-          console.log(data.results)
           let popularMovies = data.results.filter(((item) => item.popularity > 10))
-          console.log(popularMovies);
-
           setMovies(popularMovies);
           setCounter(counter + 1);
-
         });
     }
 
@@ -67,7 +58,7 @@ function App() {
         </div>
 
         <div className="button">
-          <button id="loadMore" onClick={loadMore}>Load More Moviess</button>
+          <button id="loadMore" onClick={loadMore}>Load More Movies</button>
         </div>
 
       </main>
